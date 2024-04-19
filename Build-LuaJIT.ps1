@@ -10,7 +10,7 @@ function Start-VsDevCmd
         -Path "$installationPath" `
         -ChildPath Common7\Tools\VsDevCmd.bat `
         -Resolve
-    & "${env:COMSPEC}" /s /c "`"$vsdevcmd`" -no_logo -arch=amd64 && set" |
+    & "${env:COMSPEC}" /s /c "`"$vsdevcmd`" -no_logo -arch=x86 -host_arch=x86 && set" |
         ForEach-Object {
             $name, $value = $_ -split '=', 2
             Set-Item -Path env:\"$name" -Value $value
